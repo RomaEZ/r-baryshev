@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Барышев Роман | Middle+ IT Project Manager">
+  <meta property="og:description" content="Управляю IT-проектами от идеи до релиза более 6 лет,использую Agile (Scrum + Kanban). Знаю SQL и имею опыт Frondend-разработки."/>
+  <meta property="og:image" content="https://r-baryshev.ru/img/images/rv_og.png">
+  <meta property="og:image:width" content="521" class="">
+	<meta property="og:image:height" content="265" class="">
+	<meta property="og:image:type" content="image/png" class="">
+  <title>Барышев Роман | Middle+ IT Project Manager</title>
+  <meta name="description" content="IT Project Manager с опытом более 6 лет в направлениях Fintech, e-commerce и EdTech, с отличным знанием методологий, подходов, фреймворков и инструментов проектного управления.">
+  <link rel="shortcut icon" href="img/icons/fav.svg" type="image/x-icon">
+  <link rel="stylesheet" href="styles/fonts.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+</head>
+<body>
+
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <button class="navbar-logo" onclick="scrollTo('hero')">R<span class="accent">B</span></button>
+    <nav class="nav-links">
+      <a href="#hero" class="nav-link active" data-section="hero">Главная</a>
+      <a href="#achievements" class="nav-link" data-section="achievements">Достижения</a>
+      <a href="#responsibilities" class="nav-link" data-section="responsibilities">Обязанности</a>
+      <a href="#experience" class="nav-link" data-section="experience">Опыт</a>
+      <a href="#education" class="nav-link" data-section="education">Образование</a>
+      <a href="#skills" class="nav-link" data-section="skills">Навыки</a>
+      <a href="#about" class="nav-link" data-section="about">О себе</a>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Меню">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#hero" class="nav-link" onclick="closeMobile()">Главная</a>
+      <a href="#achievements" class="nav-link" onclick="closeMobile()">Достижения</a>
+      <a href="#responsibilities" class="nav-link" onclick="closeMobile()">Обязанности</a>
+      <a href="#experience" class="nav-link" onclick="closeMobile()">Опыт</a>
+      <a href="#education" class="nav-link" onclick="closeMobile()">Образование</a>
+      <a href="#skills" class="nav-link" onclick="closeMobile()">Навыки</a>
+      <a href="#about" class="nav-link" onclick="closeMobile()">О себе</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="hero-subtitle">IT Project Manager</p>
+        <h1>БАРЫШЕВ<br><span class="text-gradient">РОМАН</span></h1>
+        <div class="hero-status"><span class="dot"></span> Статус: не ищу работу</div>
+        <div class="hero-info">
+          <p><strong>ОПЫТ РАБОТЫ ИТ ПМ:</strong> <span>6+ лет</span></p>
+          <p><strong>НАПРАВЛЕНИЯ:</strong> <span>Fintech, e-commerce, EdTech</span></p>
+          <p><strong>ПОДХОДЫ К УПРАВЛЕНИЮ:</strong> <span>Agile и Waterfall</span></p>
+          <p><strong>ФРЕЙМВОРКИ И МЕТОДЫ:</strong> <span>Scrum, Kanban, Lean, XP, SAFe</span></p>
+          <p><strong>ИНСТРУМЕНТЫ:</strong> <span>MS-Project, Jira, Confluence, Kaiten, Asana, Notion, Trello, Miro и др.</span></p>
+          <p><strong>ДОПОЛНИТЕЛЬНО:</strong> <span>опыт работы Frontend-разработчиком, знание Git и SQL</span></p>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-container">
+          <img src="img/images/banner.webp" alt="Барышев Роман" class="hero-photo" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">ДОСТИЖЕНИЯ</h2>
+      <div class="section-divider" style="margin-bottom:3rem"></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="card-glass stat-card fade-up"><span class="stat-number text-gradient">150+</span><p class="stat-label">реализованных проектов</p></div>
+      <div class="card-glass stat-card fade-up"><span class="stat-number text-gradient">40+</span><p class="stat-label">запущенных продуктов</p></div>
+      <div class="card-glass stat-card fade-up"><span class="stat-number text-gradient">12</span><p class="stat-label">сформированных команд</p></div>
+    </div>
+
+    <div class="highlights">
+      <span class="highlight-badge">Успешно внедрил SCRUM в работу 6 команд</span>
+      <span class="highlight-badge">Успешно руководил PMO</span>
+    </div>
+
+    <h3 class="section-title fade-up" style="margin-bottom:2.5rem">Примеры проектов</h3>
+
+    <div class="projects-list">
+      <div class="card-glass project-card fade-up">
+        <div class="project-card-inner">
+          <div class="project-header">
+            <div><div class="project-title">Интернет-магазин</div><div class="project-subtitle">Запуск интернет-магазина</div></div>
+            <div class="project-badges"><span class="project-badge">7 месяцев</span><span class="project-badge">7 человек</span></div>
+          </div>
+          <p class="project-desc">Были с нуля разработаны UI/UX-дизайн каталога, карточки, корзины, страницы оформления заказа и личного кабинета. Реализован функционал оформления, оплаты и отслеживания заказа. Написана интеграция с программой ПВЗ. Создана кастомная корзина, личный кабинет. Настроена интеграция с сервисом службы поддержки.</p>
+          <div class="project-result"><span>✦</span><span>Запущена MVP-версия интернет-магазина с полностью рабочим флоу покупки товара.</span></div>
+          <a href="https://shop.motivtelecom.ru/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ссылка на сайт
+          </a>
+        </div>
+      </div>
+
+      <div class="card-glass project-card fade-up">
+        <div class="project-card-inner">
+          <div class="project-header">
+            <div><div class="project-title">Smart-Limit</div><div class="project-subtitle">Запуск продукта-аналога кредитной карты</div></div>
+            <div class="project-badges"><span class="project-badge">8+ месяцев</span><span class="project-badge">15+ человек</span></div>
+          </div>
+          <p class="project-desc">Продукт — аналог кредитной карты для клиентов Альфа-Банка. Клиент видит оффер в контуре банка и оформляет заявку, после подписания договора активируется счет с лимитом до 30 тыс. руб.</p>
+          <div class="project-result"><span>✦</span><span>Интеграция увеличила ежемесячные выдачи продукта в 3 раза. 40 тыс. выдач/мес, оборот 400 млн руб./мес.</span></div>
+          <a href="https://adengi.ru/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ссылка на сайт
+          </a>
+        </div>
+      </div>
+
+      <div class="card-glass project-card fade-up">
+        <div class="project-card-inner">
+          <div class="project-header">
+            <div><div class="project-title">Инфраструктура девелопера</div><div class="project-subtitle">Цифровая трансформация девелоперской компании</div></div>
+            <div class="project-badges"><span class="project-badge">12+ месяцев</span><span class="project-badge">20+ человек</span></div>
+          </div>
+          <p class="project-desc">Создание цифровой инфраструктуры девелоперской компании: CRM, личный кабинет клиента, интеграции с банками и гос. сервисами, автоматизация документооборота.</p>
+          <div class="project-result"><span>✦</span><span>Запущена единая цифровая экосистема, объединяющая все бизнес-процессы компании.</span></div>
+          <a href="https://strana.com/msk/" target="_blank" rel="noopener noreferrer" class="project-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Ссылка на сайт
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://r-baryshev.ru/files/baryshev_portfolio.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">СКАЧАТЬ ПОРТФОЛИО ПРОЕКТОВ В PDF</a>
+  </div>
+</section>
+
+<!-- RESPONSIBILITIES -->
+<section id="responsibilities" class="section-alt">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">ОБЯЗАННОСТИ</h2>
+      <div class="section-divider" style="margin-bottom:3rem"></div>
+    </div>
+    <div class="duties-grid">
+      <div class="card-glass duty-card fade-up"><span class="duty-num">1</span><p class="duty-text">Управлял полным циклом проектов: от инициации, до завершения и оценки результатов</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">2</span><p class="duty-text">Выстраивал эффективные и доверительные взаимоотношения со стейкхолдерами, командами и другими заинтересованными сторонами</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">3</span><p class="duty-text">Создавал и управлял кросс-функциональными командами разработки, включая найм, отслеживание эффективности и развитие сотрудников</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">4</span><p class="duty-text">Внедрял Agile, Scrum и другие инструменты и фреймворки гибкого проектного управления</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">5</span><p class="duty-text">Тестировал и проводил презентации готовых продуктов и задач на уровне топ-менеджмента компаний</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">6</span><p class="duty-text">Вел проектную документацию: паспорта проектов, ТЗ, отчёты о закрытии спринтов и т.д.</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">7</span><p class="duty-text">Управлял рисками: составлял реестры и проводил анализ, занимался митигацией рисков</p></div>
+      <div class="card-glass duty-card fade-up"><span class="duty-num">8</span><p class="duty-text">Управлял PMO: от найма сотрудников до стандартизации и оптимизации процессов и инструментов</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">ОПЫТ РАБОТЫ</h2>
+      <div class="section-divider" style="margin-bottom:1rem"></div>
+      <p class="exp-total text-gradient">6 лет 3 месяца</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="card-glass timeline-card"><span class="timeline-duration">4 года 1 месяц</span><h3 class="timeline-role">PM в FinTech и e-commerce</h3></div></div>
+      <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="card-glass timeline-card"><span class="timeline-duration">1 год 6 месяцев</span><h3 class="timeline-role">PM в EdTech</h3></div></div>
+      <div class="timeline-item fade-up"><div class="timeline-dot"></div><div class="card-glass timeline-card"><span class="timeline-duration">7 месяцев</span><h3 class="timeline-role">Frontend-разработчик</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section-alt">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">ОБРАЗОВАНИЕ</h2>
+      <div class="section-divider" style="margin-bottom:3rem"></div>
+    </div>
+    <div class="card-glass edu-card fade-up">
+      <p class="edu-label">Высшее образование</p>
+      <h3 class="edu-name">Ковровская государственная технологическая академия им. В.А. Дегтярева</h3>
+      <p class="edu-detail">Автоматика и электроника, Информатика и вычислительная техника</p>
+      <p class="edu-detail" style="margin-top:0.25rem">2018</p>
+    </div>
+    <h3 style="font-size:1.25rem;font-family:var(--font-heading);font-weight:600;margin-bottom:1.5rem" class="fade-up">Сертификаты</h3>
+    <div class="certs-grid">
+      <div class="card-glass cert-card fade-up" onclick="openCertModal('Основы веб-вёрстки', 'img/images/sert/web.png')"><div class="cert-num">1</div><p class="cert-name">Основы веб-вёрстки</p></div>
+      <div class="card-glass cert-card fade-up" onclick="openCertModal('Google Project Manager', 'img/images/sert/gpm.png')"><div class="cert-num">2</div><p class="cert-name">Google Project Manager</p></div>
+      <div class="card-glass cert-card fade-up" onclick="openCertModal('Базовый SQL', 'img/images/sert/sql_basic.png')"><div class="cert-num">3</div><p class="cert-name">Базовый SQL</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="section-title">НАВЫКИ</h2>
+      <div class="section-divider" style="margin-bottom:3rem"></div>
+    </div>
+    <div class="skills-wrap">
+      <span class="skill-tag fade-up">Управление проектами</span>
+      <span class="skill-tag fade-up">Управление командой</span>
+      <span class="skill-tag fade-up">Agile</span>
+      <span class="skill-tag fade-up">Scrum</span>
+      <span class="skill-tag fade-up">Kanban</span>
+      <span class="skill-tag fade-up">Risk management</span>
+      <span class="skill-tag fade-up">Lean</span>
+      <span class="skill-tag fade-up">PMBOK</span>
+      <span class="skill-tag fade-up">SAFe</span>
+      <span class="skill-tag fade-up">Git</span>
+      <span class="skill-tag fade-up">SQL</span>
+      <span class="skill-tag fade-up">Системный анализ</span>
+      <span class="skill-tag fade-up">Диаграмма Ганта</span>
+      <span class="skill-tag fade-up">TimeLine</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-alt">
+  <div class="container" style="max-width:48rem">
+    <div class="fade-up">
+      <h2 class="section-title">О СЕБЕ</h2>
+      <div class="section-divider" style="margin-bottom:3rem"></div>
+    </div>
+    <div class="about-text fade-up">
+      <p>В должности менеджера проектов я успешно реализовал большое количество проектов, связанных с банковскими интеграциями, комплаенс и e-commerce. Запускаю проекты любой степени сложности, длительности и объема. Выстраиваю эффективную коммуникацию, прозрачные процессы и доверительные отношения со стейкхолдерами, командой и другими заинтересованными сторонами.</p>
+      <p>Формировал с нуля и успешно управлял кросс-функциональные команды разработки, внедрил Agile, Scrum и Kanban в работу команд и рабочих групп. Отличное знание и применение в работе Jira, Confluence, Trello, MS Project, Notion и других инструментов проектного управления.</p>
+      <p>Имею опыт построения BPMN и UML-диаграммы, анализировать данные и проектировать БД.</p>
+      <p>В свободное время изучаю новые инструменты проектного управления и английский, а также занимаюсь веб-разработкой. Люблю активные виды спорта и стараюсь по-возможности путешествовать.</p>
+    </div>
+    <div class="footer-bar fade-up">
+      <p>Связаться со мной</p>
+      <div class="contact-links">
+        <a href="https://t.me/baryshev_rv" target="_blank" rel="noopener noreferrer" class="contact-link">Telegram</a>
+        <a href="www.linkedin.com/in/roman-baryshev-552042314" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+        <a href="https://hh.ru/resume/507ddfecff07751c1c0039ed1f4e796e65384a" target="_blank" rel="noopener noreferrer" class="contact-link">hh.ru</a>
+      </div>
+      <p class="copyright">© 2026 Барышев Роман</p>
+    </div>
+  </div>
+</section>
+
+<!-- CERT MODAL -->
+<div class="modal-overlay" id="certModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeCertModal()" aria-label="Закрыть">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <h3 class="modal-title" id="certModalTitle"></h3>
+    <img class="modal-img" id="certModalImg" src="" alt="" />
+  </div>
+</div>
+</body>
+</html>
