@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Navbar scroll effect
   const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  const navLinks = document.querySelectorAll('.nav-link');
   const sections = ['hero','achievements','responsibilities','experience','education','skills','about'];
 
   window.addEventListener('scroll', () => {
