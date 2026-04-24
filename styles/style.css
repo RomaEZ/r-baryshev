@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 .hero-info p { font-size: 0.875rem; margin-bottom: 0.75rem; }
 .hero-info strong { color: var(--fg); font-weight: 600; }
-.hero-info span { color: var(--muted-fg); }
+.hero-info span { color: var(--muted-fg); text-transform: uppercase; }
 .hero-photo-wrap { display: flex; justify-content: center; }
 .hero-photo-container { position: relative; width: 100%; max-width: 28rem; }
 .hero-photo-container::before { content: ''; position: absolute; inset: -4px; border-radius: 1rem; background: linear-gradient(135deg, hsla(38, 90%, 55%, 0.3), transparent); filter: blur(20px); }
