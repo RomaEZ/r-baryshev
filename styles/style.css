@@ -59,11 +59,55 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
 .hero-status { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border); background: hsla(220, 15%, 15%, 0.5); margin-bottom: 2rem; font-size: 0.875rem; color: var(--muted-fg); }
 .hero-status .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--primary); animation: pulse 2s infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-.hero-info p { font-size: 0.875rem; margin-bottom: 0.75rem; }
-.hero-info strong { color: var(--fg); font-weight: 600; }
-.hero-info span { color: var(--muted-fg); text-transform: uppercase; }
-.hero-photo-wrap { display: flex; justify-content: center; }
-.hero-photo-container { position: relative; width: 100%; max-width: 28rem; }
+.hero-info {
+  max-width: 38rem;
+}
+.hero-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.8rem;
+}
+.hero-info p:last-child { margin-bottom: 0; }
+.hero-info strong {
+  color: var(--fg);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.hero-info span {
+  color: hsl(220, 10%, 68%);
+  font-weight: 500;
+}
+
+/* Variant A: lines (active) */
+.hero-info--lines p {
+  padding: 0.45rem 0 0.55rem 0.95rem;
+  border-left: 2px solid hsla(220, 15%, 28%, 0.85);
+  border-bottom: 1px solid hsla(220, 15%, 100%, 0.06);
+  transition: border-color 0.2s ease;
+}
+.hero-info--lines p:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.hero-info--lines p:hover {
+  border-left-color: hsla(38, 90%, 55%, 0.8);
+}
+
+/* Variant B: soft glow */
+.hero-info--glow p {
+  padding-left: 0.9rem;
+  border-left: 1px solid hsla(38, 90%, 55%, 0.35);
+}
+.hero-info--glow strong {
+  color: hsl(40, 14%, 95%);
+}
+.hero-info--glow span {
+  color: hsl(220, 10%, 72%);
+}
+.hero-photo-wrap { display: flex; justify-content: flex-end; }
+.hero-photo-container { position: relative; width: 100%; max-width: none; }
 .hero-photo-container::before { content: ''; position: absolute; inset: -4px; border-radius: 1rem; background: linear-gradient(135deg, hsla(38, 90%, 55%, 0.3), transparent); filter: blur(20px); }
 .hero-photo { position: relative; width: 100%; border-radius: 1rem; object-fit: cover; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
 
@@ -72,6 +116,7 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
     .hero-photo-wrap { order: -1; justify-content: center; }
     .hero-photo-container { max-width: 18rem; }
     .hero-status { justify-content: center; }
+    .hero-info { max-width: 100%; }
     .hero-info p { text-align: left; }
 }
 
