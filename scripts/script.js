@@ -19,7 +19,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mobile menu
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  const menuIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>';
+  const closeIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+  const syncMobileToggleState = () => {
+    const isOpen = mobileMenu.classList.contains('open');
+    mobileToggle.innerHTML = isOpen ? closeIcon : menuIcon;
+    mobileToggle.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  mobileToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('open');
+    syncMobileToggleState();
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('open')) return;
+    if (e.target.closest('#mobileMenu') || e.target.closest('#mobileToggle')) return;
+    mobileMenu.classList.remove('open');
+    syncMobileToggleState();
+  });
+  syncMobileToggleState();
 
   // Scroll animations (IntersectionObserver)
   const observer = new IntersectionObserver((entries) => {
@@ -54,7 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Expose to inline handlers
-  window.closeMobile = function() { mobileMenu.classList.remove('open'); };
+  window.closeMobile = function() {
+    mobileMenu.classList.remove('open');
+    syncMobileToggleState();
+  };
   window.scrollTo = function(id) {
     closeMobile();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
