@@ -10,11 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # Setup key
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
+      # Setup key — в секрете только ПРИВАТНЫЙ ключ; tr убирает CR из Windows-копий
+      - run: |
+          set -eu
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          echo "${{ secrets.key }}" | tr -d '\r' > "$HOME/.ssh/key"
+          chmod 600 "$HOME/.ssh/key"
       # Deploy
-      - run: ssh -p 22 -i "$HOME/.ssh/key" -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" "mkdir -p /home/c/cb36969/r-baryshev/public_html"
-      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/c/cb36969/r-baryshev/public_html"
+      - run: |
+          ssh -p 22 -i "$HOME/.ssh/key" \
+            -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "mkdir -p /home/c/cb36969/r-baryshev/public_html"
+      - run: |
+          rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes" \
+            --archive --compress --delete ./ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/c/cb36969/r-baryshev/public_html"
