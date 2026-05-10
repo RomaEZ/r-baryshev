@@ -17,13 +17,23 @@ jobs:
           chmod 700 "$HOME/.ssh"
           echo "${{ secrets.key }}" | tr -d '\r' > "$HOME/.ssh/key"
           chmod 600 "$HOME/.ssh/key"
+      # Парсится ли ключ и какой отпечаток (сравни с `ssh-keygen -lf твой_ключ` локально)
+      - name: Check SSH key
+        run: |
+          set -eu
+          ssh-keygen -y -f "$HOME/.ssh/key" > /dev/null
+          echo "Fingerprint from CI private key (must match local key file):"
+          ssh-keygen -lf "$HOME/.ssh/key"
       # Deploy
       - run: |
           ssh -p 22 -i "$HOME/.ssh/key" \
-            -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=no \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o PreferredAuthentications=publickey \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
             "mkdir -p /home/c/cb36969/r-baryshev/public_html"
       - run: |
-          rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes" \
+          rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey" \
             --archive --compress --delete ./ \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/c/cb36969/r-baryshev/public_html"
