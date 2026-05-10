@@ -151,6 +151,21 @@ section { padding: 6rem 0; }
 .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 0.5rem; background: var(--primary); color: var(--primary-fg); font-family: var(--font-heading); font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
 .btn-primary:hover { opacity: 0.9; }
 
+@media (max-width: 768px) {
+  .project-header { align-items: flex-start; }
+  .project-badges {
+    width: 100%;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    justify-content: flex-start;
+  }
+  .project-badge {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* ===== RESPONSIBILITIES ===== */
 .duties-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 .duty-card { display: flex; gap: 1rem; padding: 1.25rem; border-radius: 0.75rem; }
@@ -204,6 +219,19 @@ section { padding: 6rem 0; }
 .contact-link { padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid var(--border); font-size: 0.875rem; color: var(--fg); text-decoration: none; transition: border-color 0.2s; }
 .contact-link:hover { border-color: hsla(38, 90%, 55%, 0.5); }
 .copyright { color: hsla(220, 10%, 55%, 0.5); font-size: 0.75rem; }
+
+@media (max-width: 768px) {
+  .contact-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .contact-link {
+    flex: 1 1 10rem;
+    max-width: 100%;
+    text-align: center;
+  }
+}
 
 /* ===== SCROLL ANIMATIONS ===== */
 .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
