@@ -17,13 +17,6 @@ jobs:
           chmod 700 "$HOME/.ssh"
           echo "${{ secrets.key }}" | tr -d '\r' > "$HOME/.ssh/key"
           chmod 600 "$HOME/.ssh/key"
-      # Парсится ли ключ и какой отпечаток (сравни с `ssh-keygen -lf твой_ключ` локально)
-      - name: Check SSH key
-        run: |
-          set -eu
-          ssh-keygen -y -f "$HOME/.ssh/key" > /dev/null
-          echo "Fingerprint from CI private key (must match local key file):"
-          ssh-keygen -lf "$HOME/.ssh/key"
       # Deploy
       - run: |
           ssh -p 22 -i "$HOME/.ssh/key" \
