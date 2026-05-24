@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Certificate modal
   const certModal = document.getElementById('certModal');
-  window.openCertModal = function(name, imgSrc) {
+  window.openCertModal = function(certId, imgSrc) {
+    const name = typeof getCertTitle === 'function' ? getCertTitle(certId) : certId;
     document.getElementById('certModalTitle').textContent = name;
     const img = document.getElementById('certModalImg');
     img.src = imgSrc;
