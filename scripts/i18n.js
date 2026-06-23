@@ -7,10 +7,10 @@
   const translations = {
     ru: {
       meta: {
-        title: 'Барышев Роман | Middle+ IT Project Manager',
+        title: 'Барышев Роман | Senior IT Project Manager',
         description:
           'IT Project Manager с опытом более 7 лет в направлениях Fintech, e-commerce и EdTech, с отличным знанием методологий, подходов, фреймворков и инструментов проектного управления.',
-        ogTitle: 'Барышев Роман | Middle+ IT Project Manager',
+        ogTitle: 'Барышев Роман | Senior IT Project Manager',
         ogDescription:
           'Управляю IT-проектами от идеи до релиза более 6 лет, использую Agile (Scrum + Kanban). Знаю SQL и имею опыт Frontend-разработки.',
       },
@@ -123,10 +123,10 @@
     },
     en: {
       meta: {
-        title: 'Roman Baryshev | Middle+ IT Project Manager',
+        title: 'Roman Baryshev | Senior IT Project Manager',
         description:
           'IT Project Manager with 7+ years of experience in Fintech, e-commerce, and EdTech, with strong expertise in methodologies, frameworks, and project management tools.',
-        ogTitle: 'Roman Baryshev | Middle+ IT Project Manager',
+        ogTitle: 'Roman Baryshev | Senior IT Project Manager',
         ogDescription:
           'I have been leading IT projects from idea to release for 6+ years using Agile (Scrum + Kanban). I know SQL and have Frontend development experience.',
       },
