@@ -1,0 +1,8 @@
+# Файлы и каталоги, которые не нужно отправлять на сервер
+.git/
+.github/
+node_modules/
+.vscode/
+.deployignore
+.figma-capture.mjs
+package-lock.json
