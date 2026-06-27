@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  REMOTE_PATH: /home/c/cb36969/r-baryshev/public_html
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,16 +20,38 @@ jobs:
           chmod 700 "$HOME/.ssh"
           echo "${{ secrets.key }}" | tr -d '\r' > "$HOME/.ssh/key"
           chmod 600 "$HOME/.ssh/key"
-      # Deploy
-      - run: |
-          ssh -p 22 -i "$HOME/.ssh/key" \
-            -o StrictHostKeyChecking=no \
-            -o BatchMode=yes \
-            -o IdentitiesOnly=yes \
-            -o PreferredAuthentications=publickey \
+          echo "SSH_OPTS=-p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey" >> "$GITHUB_ENV"
+      - name: Ensure remote directory exists
+        run: |
+          ssh $SSH_OPTS \
             "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
-            "mkdir -p /home/c/cb36969/r-baryshev/public_html"
-      - run: |
-          rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no -o BatchMode=yes -o IdentitiesOnly=yes -o PreferredAuthentications=publickey" \
-            --archive --compress --delete ./ \
-            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/c/cb36969/r-baryshev/public_html"
+            "mkdir -p ${{ env.REMOTE_PATH }}"
+      # Снимок файлов на сервере до деплоя — для проверки, что ничего не удалено
+      - name: Snapshot server files before deploy
+        run: |
+          ssh $SSH_OPTS \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "find ${{ env.REMOTE_PATH }} | sort" > server-before.txt
+          echo "Files on server before deploy: $(wc -l < server-before.txt)"
+      # Синхронизация без --delete: существующие на сервере файлы (в т.ч. из .gitignore) не удаляются
+      - name: Deploy to production
+        run: |
+          rsync -e "ssh $SSH_OPTS" \
+            --archive --compress \
+            --exclude-from '.deployignore' \
+            --itemize-changes --verbose \
+            ./ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ env.REMOTE_PATH }}"
+      # Проверка: ни один файл/папка с сервера не должен исчезнуть после деплоя
+      - name: Verify server files were not deleted
+        run: |
+          ssh $SSH_OPTS \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" \
+            "find ${{ env.REMOTE_PATH }} | sort" > server-after.txt
+          comm -23 server-before.txt server-after.txt > removed.txt || true
+          if [ -s removed.txt ]; then
+            echo "::error::Deploy removed files or directories from the server:"
+            cat removed.txt
+            exit 1
+          fi
+          echo "All existing server files and directories preserved."
